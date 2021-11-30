@@ -1,3 +1,16 @@
+/* html, body{
+    
+    width:100%;
+    height: 100%;
+    margin:0px;
+    /* overflow-x:hidden; */
+    /* padding : 0px; */
+/* } */ 
+html,body {
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
 /*  importing google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
@@ -7,9 +20,11 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
 html{
     scroll-behavior: smooth;
 }
+
 .max-width{
     max-width: 2000px;
     padding: 0 80px;
@@ -27,10 +42,13 @@ html{
     z-index: 999;
     font-family:'Ubuntu',sans-serif;
     transition: all 0.3 ease;
+    overflow: auto;
+    
 }
 .navbar.sticky{
     padding: 15px 0;
-    background:black;
+    background-color:black;
+    overflow:auto;
 }
 .navbar .max-width{
     display: flex;
@@ -44,23 +62,25 @@ html{
 }
 .navbar .logo a span{
     color:white;
+    /* background-color: #111; */
     transition: all 0.3 ease;
 }
 .navbar.sticky .logo a span{
     color: white;
 }
-.navbar .menu li{
+/* commented by me */
+/* .navbar .menu li{
     list-style: none;
     display: inline-block;
-}
-.navbar .menu li a{
+} */
+/* .navbar .menu li a{
     display: block;
     color: white;
     font-size: 20px;
     font-weight: 600;
     margin-left: 10px;
     transition: color 0.3 ease;
-}
+} */
 .navbar .menu li a:hover{
     color:gray;
 }
@@ -68,11 +88,57 @@ html{
     color: white;
 }
 /* menu button styling  */
-.menu-btn{
+/* this one */
+/* .menu-btn{
     color: white;
     font-size: 25px;
     cursor: pointer;
     display: none;
+} */
+/* till here  */
+/* from here */
+.menu-btn{
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    display: block;
+    z-index: 999;
+}
+.menu-btn i.active:before{
+    content: "\f00d";
+}
+/* .navbar-default {
+    background-color: firebrick;
+  } */
+.navbar .menu{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: #111;
+    text-align: center;
+    padding-top: 0px;
+    transition: all 0.3s ease;
+}
+.navbar .menu.active{
+    left: 0;
+}
+.navbar .menu li{
+    list-style: none;
+    /* display: inline-block; */
+    display: block;
+}
+.navbar .menu li a{
+    /* display: block; */
+    color: white;
+    /* font-size: 20px; */
+    font-weight: 600;
+    /* margin-left: 10px; */
+    transition: color 0.3 ease;
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 20px;
 }
 /* home section styling */
 .home{
@@ -92,7 +158,15 @@ html{
 .home .home-content .text{
     font-size: 70px;
     font-weight: 400;
+    text-align: center;
     
+}
+.home .home-content .text span{
+    font-size: 70px;
+    font-weight: 400;
+    text-align: center;
+    
+
 }
 
 /* all common styling */
@@ -112,9 +186,10 @@ section .title
 section .title::before{
     content: "";
     position: absolute;
-    width: 225px;
+    margin: auto 0px  40px;
+    /* width: 225px;
     height: 3px;
-    bottom: 0px;
+    bottom: 0px; */
     left: 50%;
     background: black;
     transform: translateX(-50%);
@@ -149,12 +224,14 @@ If want to add anything later here place it in "" */
     justify-content: space-between;
 }
 .about .about-content .left{
-    width: 45%;
+    margin: auto 0px  40px;
+    /* width: 45%; */
 }
 
 .about .about-content .left img{
-    height: 700px;
-    width: 500px;
+    margin: auto 0px  40px;
+    /* height: 700px;
+    width: 500px; */
     object-fit: cover;
     border-radius: 15px;
 }
@@ -860,61 +937,6 @@ if want to add anything later comes here
 }
 
 /* contact section styling */
-/* .contact{
-    padding: 100px 0;
-}
-.contact .title
-{
-    position: relative;
-    text-align: center;
-    font-size: 50px ;
-    font-weight: 400;
-    margin-bottom: 60px;
-    padding-bottom: 10px;
-    font-family: 'Ubuntu',sans-serif;
-}
-.contact .title::before{
-    content: "";
-    position: absolute;
-    width: 225px;
-    height: 3px;
-    bottom: 0px;
-    left: 50%;
-    background: black;
-    transform: translateX(-50%);
-}
-
-.contact .title::before{
-    content: "";
-    background:black;
-    width: 300px;
-}
-.contact .contact-content .column{
-    width: calc(50% - 30px);
-}
-.contact .contact-content .text{
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-.contact .contact-content .left p{
-    text-align: justify;
-}
-.contact .contact-content .left .icons{
-    margin: 10px 0;
-}
-.contact .contact-content .row{
-    display: flex;
-    height: 65px;
-    align-items: center;
-}
-.contact .contact-content .row .info{
-    margin-left: 30px;
-}
-.contact .contact-content .row i{
-    font-size: 25px;
-    color: black;
-} */
 .contact{
     padding: 100px 0;
     display: flex;
@@ -1037,6 +1059,7 @@ footer{
     padding: 20px 23px;
     color: white;
     text-align: center;
+    overflow: hidden;
 }
 
 /* scroll button styling */
@@ -1065,194 +1088,6 @@ footer{
 
 }
 /* interactive media queries */
-
-/* @media (max-width:1500px){
-    .menu-btn{
-        color:white;
-        display: block;
-        z-index: 999;
-    }
-    .menu-btn i.active:before{
-        content:"\f00d";
-    }
-    .navbar .menu{
-        position: fixed;
-        background:black;
-        height: 100vh;
-        width: 100%;
-        left: -100%;
-        top: 0;
-        text-align: center;
-        padding-top: 100px;
-        transition: all 0.3s ease;
-    }
-    .navbar .menu.active{
-        left: 0;
-
-    }
-    .navbar .menu li{
-        display: block;
-    }
-    .navbar .menu li a{
-        display: inline-block;
-        margin: 20px 0;
-        font-size: 25px;
-    }
-    .max-width{
-        padding: 0 50px;
-    }
-
-}
-@media (max-width:1200px){
-    
-    .menu-btn{
-        color:white;
-        display: block;
-        z-index: 999;
-    }
-    .menu-btn i.active:before{
-        content:"\f00d";
-    }
-    .navbar .menu{
-        position: fixed;
-        background:black;
-        height: 100vh;
-        width: 100%;
-        left: -100%;
-        top: 0;
-        text-align: center;
-        padding-top: 100px;
-        transition: all 0.3s ease;
-    }
-    .navbar .menu.active{
-        left: 0;
-
-    }
-    .navbar .menu li{
-        display: block;
-    }
-    .navbar .menu li a{
-        display: inline-block;
-        margin: 20px 0;
-        font-size: 25px;
-    }
-    .home .home-content .text{
-        font-size: 55px;
-        font-weight: 200;
-        
-    }
-    .about .about-content .column{
-        width: 50%;
-
-    }
-    .max-width{
-        max-width: 800px;
-    }
-    .about .about-content .left{
-        display: flex;
-        justify-content: center;
-        margin: 0 auto  20px ;
-
-    }
-    .about .about-content .rigth{
-        flex:100%;
-    }
-    
-}
-@media (max-width:1200px){
-    .about .about-content .left img{
-        height: 580px;
-        width: 360px;
-        
-    }
-
-
-}
-@media (max-width:700px){
-    .menu-btn{
-        color:white;
-        display: block;
-        z-index: 999;
-    }
-    .menu-btn i.active:before{
-        content:"\f00d";
-    }
-    .navbar .menu{
-        position: fixed;
-        background:black;
-        height: 100vh;
-        width: 100%;
-        left: -100%;
-        top: 0;
-        text-align: center;
-        padding-top: 100px;
-        transition: all 0.3s ease;
-    }
-    .navbar .menu.active{
-        left: 0;
-
-    }
-    .navbar .menu li{
-        display: block;
-    }
-    .navbar .menu li a{
-        display: inline-block;
-        margin: 20px 0;
-        font-size: 25px;
-    }
-    .max-width{
-        padding: 0 25px;
-    }
-    .home .home-content .text{
-        font-size: 45px;
-        font-weight: 100;
-        
-    }
-
-
-}
-@media (max-width:500px){
-    .menu-btn{
-        color:white;
-        display: block;
-        z-index: 999;
-    }
-    .menu-btn i.active:before{
-        content:"\f00d";
-    }
-    .navbar .menu{
-        position: fixed;
-        background:black;
-        height: 100vh;
-        width: 100%;
-        left: -100%;
-        top: 0;
-        text-align: center;
-        padding-top: 100px;
-        transition: all 0.3s ease;
-    }
-    .navbar .menu.active{
-        left: 0;
-
-    }
-    .navbar .menu li{
-        display: block;
-    }
-    .navbar .menu li a{
-        display: inline-block;
-        margin: 20px 0;
-        font-size: 25px;
-    }
-    .max-width{
-        padding: 0 15px;
-    }
-    .home .home-content .text{
-        font-size: 35px;
-        font-weight: 100;
-        
-    }
-
-} */
 
 @media (max-width: 1300px) {
     .about .about-content .left img{
@@ -1325,7 +1160,7 @@ footer{
         width: 100%;
         margin-bottom: 20px;
     }
-    .education .skills-content .column,
+    .education .education-content .column,
     .contact .contact-content .column{
         width: 100%;
         margin-bottom: 35px;
