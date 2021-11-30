@@ -67,7 +67,7 @@ $(document).ready(function(){
         loop: true
     });
     var typed = new Typed(".typing3", {
-        strings: ["Welcome, Visitor."],
+        strings: ["Welcome."],
         typeSpeed: 100,
         backSpeed: 30,
         loop: true
